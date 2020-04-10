@@ -7,10 +7,10 @@ export default {
     destination: resolve(__dirname, '..', '..', 'temp', 'uploads'),
     filename: (rec, file, cb) => {
       crypto.randomBytes(16, (err, res) => {
-        if(err) return cb(err);
+        if (err) return cb(err);
 
-        return cb(null, res.toString('hex') + extname(file.originalname))
+        return cb(null, res.toString('hex') + extname(file.originalname));
       });
     },
   }),
-}
+};

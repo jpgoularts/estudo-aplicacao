@@ -5,8 +5,8 @@ import authConfig from '../../config/auth';
 
 export default async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  if(!authHeader) {
-    return res.status(401).json({ error: "Token not provided" });
+  if (!authHeader) {
+    return res.status(401).json({ error: 'Token not provided' });
   }
 
   // Utiliza apenas a segunda posição do array
@@ -18,7 +18,7 @@ export default async (req, res, next) => {
     req.userId = decoded.id;
 
     return next();
-  } catch(err) {
+  } catch (err) {
     return res.status(401).json({ error: 'Token invalid' });
   }
-}
+};
